@@ -6,8 +6,10 @@ requirejs.config({
 		"cordovaLib" : "../../cordova",
 		"localNotification": "../libs/phonegapPlugins/cordova.LocalNotification",
 		"pushNotification": "../libs/phonegapPlugins/PushNotification",
-
-		"underscore": "../libs/lodash-1.2.1"
+		//Underscore
+		"underscore": "../libs/lodash-1.2.1",
+		//jQuery
+		"jquery": "../libs/jquery-2.0.2"
 	},
 	// Sets the configuration for your third party scripts that are not AMD compatible
 	shim:{
@@ -25,13 +27,17 @@ requirejs.config({
 
 		'underscore':{
 			exports: '_'
+		},
+
+		'jquery': {
+			exports: 'jquery'
 		}
 
 	}
 });
 //Finally start the Application Entry module
-define(['localNotification','pushNotification','underscore'],
-	function(localNotification,localPushNotification,local_){
+define(['localNotification','pushNotification','underscore','jquery'],
+	function(localNotification,localPushNotification,localUnderscore,localJQuery){
 		//console.log('Application Entry');
 		require(['view/cordovaEntry'],
 			function(CordovaEntry){
